@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="LancarHoras.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:LancarHoras"
+    xmlns:principal="clr-namespace:LancarHoras.Pages.Principal"
+    xmlns:usuario="clr-namespace:LancarHoras.Pages.Usuario"
+    Shell.FlyoutBehavior="Disabled">
+
+    <TabBar x:Name="MenuPrincipal">
+        <Tab Title="Principal"
+             Icon="relogio.png">
+            <ShellContent
+                Title="Lançar Horas"
+                ContentTemplate="{DataTemplate principal:LancarHoraForm}"
+                Route="LancarHoraForm" />
+        </Tab>
+        <Tab Title="Usuario"
+             Icon="usuario.png">
+            <ShellContent
+                Title="Situação"
+                ContentTemplate="{DataTemplate usuario:Situacao}"
+                Route="Situacao" />
+            <ShellContent
+                Title="LogIn"
+                ContentTemplate="{DataTemplate usuario:LogIn}"
+                Route="LogIn" />
+            <ShellContent
+                Title="Conexão"
+                ContentTemplate="{DataTemplate usuario:Conexao}"
+                Route="Conexao" />
+        </Tab>
+    </TabBar>
+
+    <!--<ShellContent
+        Title="App Lançar Horas"
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />-->
+
+</Shell>

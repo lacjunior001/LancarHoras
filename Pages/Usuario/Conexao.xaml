@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LancarHoras.Pages.Usuario.Conexao"
+             xmlns:viewmodel="clr-namespace:LancarHoras.ViewModel"
+             x:DataType="viewmodel:ConexaoViewModel"
+             Title="Conexao">
+
+    <ScrollView>
+        <StackLayout>
+
+            <Label 
+                Style="{StaticResource tituloPagina}"
+                Text="Dados de Conexão"/>
+
+            <Label 
+                Style="{StaticResource explicaPagina}"
+                Text="Visualizar e atualizar dados de conexão com servidor"/>
+
+            <Label 
+                Text="Endereço Identity Provider:"/>
+
+            <Border                >
+                <Entry
+                    IsEnabled="{Binding CamposAtivo}"
+                    Keyboard="Url" 
+                    Text="{Binding EnderecoIdentityProvider}"/>
+            </Border>
+
+
+            <Label 
+                Text="Endereço Api Server:"/>
+            <Entry
+                IsEnabled="{Binding CamposAtivo}"
+                Keyboard="Url"
+                Text="{Binding EnderecoAPIServer}"/>
+
+            <Label 
+                Text="Client Id:"/>
+            <Entry
+                IsEnabled="{Binding CamposAtivo}"
+                Text="{Binding ClientId}"/>
+
+            <Label
+                Text="Client Secret:"/>
+            <Entry
+                IsEnabled="{Binding CamposAtivo}"
+                Text="{Binding ClientSecret}"/>
+
+            <Label 
+                Text="Tenant:"/>
+            <Entry
+                IsEnabled="{Binding CamposAtivo}"
+                Text="{Binding Tenant}"/>
+
+            <Label 
+                Text="Grant Type:"/>
+            <Entry
+                IsEnabled="{Binding CamposAtivo}"
+                Text="{Binding GrantType}"/>
+
+            <Label 
+                Text="Scope:"/>
+            <Entry
+                IsEnabled="{Binding CamposAtivo}"
+                Text="{Binding Scope}"/>
+
+            <Grid
+                
+                ColumnSpacing="4"
+                RowSpacing="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition  Width="*"/>
+                    <ColumnDefinition  Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button 
+                    Text="Editar"
+                    Grid.Row="0"
+                    Grid.ColumnSpan="2"
+                    IsVisible="{Binding EditarVisivel}"
+                    Command="{Binding EditarCommand}" />
+
+                <Button 
+                    BackgroundColor="Red"
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Text="Salvar"
+                    IsVisible="{Binding SalvarVisivel}" 
+                    Command="{Binding SalvarCommand}" />
+
+                <Button 
+                    Text="Cancelar"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    IsVisible="{Binding SalvarVisivel}" 
+                    Command="{Binding SalvarCommand}" />
+
+                <Button 
+                    Text="Restaurar Padrão"
+                    Grid.Row="2"
+                    Grid.ColumnSpan="2"
+                    IsVisible="{Binding SalvarVisivel}" 
+                    Command="{Binding SalvarCommand}" />
+            </Grid>
+
+        </StackLayout>
+    </ScrollView>
+
+
+</ContentPage>
